@@ -1,12 +1,54 @@
-//
-//  main.swift
-//  ProtocolsDemo
-//
-//  Created by Liu, Bojun on 2020-05-19.
-//  Copyright © 2020 Liu, Nicole. All rights reserved.
-//
+protocol CanFly {
+    func fly()
+}
 
-import Foundation
+class Bird {
+    
+    var isFemale = true
 
-print("Hello, World!")
+    func layEggs () {
+        if isFemale {
+            print ("The bird makes a new bird in an egg.")
+        } else {
+            print ("The bird does not lay any eggs.")
+        }
+    }
+    
+}
+
+    
+class Eagle: Bird, CanFly {
+    func fly() {
+        print ("The eagle flaps its wings and lifts off into the sky.")
+    }
+    
+        func soar() {
+            print ("The Eagle glides in the air using air currents.")
+        }
+    }
+    
+    class Penguin: Bird {
+        func swim () {
+            print ("The penguin paddles through the water.")
+        }
+    }
+    
+struct FlyingMuesum {
+    func flyingDemo(flyingObject: CanFly) {
+        flyingObject.fly()
+    }
+}
+
+struct Airplane: CanFly {
+    func fly() {
+        print ("The airplane uses its engine to lift off into the air.")
+    }
+}
+
+let myEagle = Eagle()
+let myPenguin = Penguin()
+let myPlane = Airplane()
+
+let Muesum = FlyingMuesum()
+Muesum.flyingDemo(flyingObject: myEagle)
 
